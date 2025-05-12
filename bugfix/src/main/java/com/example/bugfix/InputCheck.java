@@ -8,11 +8,18 @@ class InputCheck {
 		if (str == null) {
 			str = "";
 		}
-		str = str;
+		// 元コード：str = str;
+		// 問題点：インスタンス変数が初期化されない
+		// 修正：this.str = str;
+		this.str = str;
 	}
 
 	protected boolean isNumeric() {
-		if (this.str == "") {
+
+		// 元コード：if (this.str == "")
+		// 問題点：Javaで文字列比較は==では不適切
+		// 修正：if (this.str.equals(""))
+		if (this.str.equals("")) {
 			return false;
 		}
 
